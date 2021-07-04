@@ -65,7 +65,7 @@ UK_BIOBANK.GENOTYPE:
 Maybe needs some more burst magic.
 
 ```
-UKB_200K_WES for comparison:
+UKB_200K_WES.GENOTYPE for comparison:
 7 minutes per 1M variants
 2 hours for UKB_200K_WES.GENOTYPE (~18M variants)
 ```
