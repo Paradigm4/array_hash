@@ -55,7 +55,7 @@ These 3 operators are associative and commutative and we use that to merge the t
 
 ## Big Array Timings
 
-Generally performs OK. Perhaps the `%` stuff can be sped up. For the very large UK_BIOBANK genotype arrays we have the following timings:
+Generally performs OK. Perhaps the `%` stuff can be sped up. For the very large UK_BIOBANK genotype arrays we have the following timings on one box:
 ```
 UK_BIOBANK.GENOTYPE:
 16.25 minutes per 1M variants
