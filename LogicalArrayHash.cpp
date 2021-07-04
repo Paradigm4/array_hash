@@ -58,7 +58,6 @@ public:
         vector<DimensionDesc> dimensions(2);
         dimensions[0] = DimensionDesc("$inst",  0, 1, 1, 0);
         dimensions[1] = DimensionDesc("$seq",   0, 1, 100000, 0);
-
         Attributes attributes;
         attributes.push_back(AttributeDesc("data_hash",
                                            TID_STRING,
@@ -68,7 +67,6 @@ public:
                                            TID_UINT64,
                                            AttributeDesc::IS_NULLABLE,
                                            CompressorType::NONE));
-
         return ArrayDesc("array_hash",
                          attributes.addEmptyTagAttribute(),
                          dimensions,
