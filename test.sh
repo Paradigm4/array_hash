@@ -27,35 +27,35 @@ store(
 )"
 
 echo "These should match" >> $OUTFILE
-iquery -aq "array_hash(foo)" >> $OUTFILE
-iquery -aq "array_hash(_sg(foo, 3))" >> $OUTFILE
-iquery -aq "array_hash(_sg(foo, 4))" >> $OUTFILE
-iquery -aq "array_hash(flatten(foo))" >> $OUTFILE
+iquery -ocsv:l -aq "array_hash(foo)" >> $OUTFILE
+iquery -ocsv:l -aq "array_hash(_sg(foo, 3))" >> $OUTFILE
+iquery -ocsv:l -aq "array_hash(_sg(foo, 4))" >> $OUTFILE
+iquery -ocsv:l -aq "array_hash(flatten(foo))" >> $OUTFILE
 #TODO: why does this assert without an SG? Optimizer returns wrong distribution type
-iquery -aq "array_hash(_sg(redimension(foo, <val:double,a:string NOT NULL,b:string,c:double> [i=1:4000000:0:10000] ), 1))" >> $OUTFILE
-iquery -aq "array_hash(filter(foo, i>0))" >> $OUTFILE
-iquery -aq "array_hash(cast(foo, <val_renamed:double,a_renamed:string NOT NULL,b_renamed:string,c_renamed:double>[i=1:4000000:0:500000]))" >> $OUTFILE
+iquery -ocsv:l -aq "array_hash(_sg(redimension(foo, <val:double,a:string NOT NULL,b:string,c:double> [i=1:4000000:0:10000] ), 1))" >> $OUTFILE
+iquery -ocsv:l -aq "array_hash(filter(foo, i>0))" >> $OUTFILE
+iquery -ocsv:l -aq "array_hash(cast(foo, <val_renamed:double,a_renamed:string NOT NULL,b_renamed:string,c_renamed:double>[i=1:4000000:0:500000]))" >> $OUTFILE
 
 echo "These should diverge" >> $OUTFILE
-iquery -aq "array_hash(filter(foo, i>1))" >> $OUTFILE
-iquery -aq "array_hash(filter(foo, i<4000000))" >> $OUTFILE
-iquery -aq "array_hash(project(foo, b,c,a,val))" >> $OUTFILE
-iquery -aq "array_hash(filter(foo, a='abc'))" >> $OUTFILE
-iquery -aq "array_hash(apply(foo, z, double(null)))" >> $OUTFILE
-iquery -aq "array_hash(cast(foo, <val:float>))" >> $OUTFILE
+iquery -ocsv:l -aq "array_hash(filter(foo, i>1))" >> $OUTFILE
+iquery -ocsv:l -aq "array_hash(filter(foo, i<4000000))" >> $OUTFILE
+iquery -ocsv:l -aq "array_hash(project(foo, b,c,a,val))" >> $OUTFILE
+iquery -ocsv:l -aq "array_hash(filter(foo, a='abc'))" >> $OUTFILE
+iquery -ocsv:l -aq "array_hash(apply(foo, z, double(null)))" >> $OUTFILE
+iquery -ocsv:l -aq "array_hash(cast(foo, <val:float>))" >> $OUTFILE
 
 echo "These should also diverge" >> $OUTFILE
-iquery -aq "array_hash(build(<val:string>[i=1:1], 'Hello, World'))" >> $OUTFILE
-iquery -aq "array_hash(build(<val:string>[i=1:1], 'Hello World'))" >> $OUTFILE
-iquery -aq "array_hash(build(<val:string>[i=1:1], null))" >> $OUTFILE
-iquery -aq "array_hash(build(<val:double>[i=1:1], 1))" >> $OUTFILE
-iquery -aq "array_hash(build(<val:int64>[i=1:1], 1))" >> $OUTFILE
-iquery -aq "array_hash(build(<val:int32>[i=1:1], 1))" >> $OUTFILE
-iquery -aq "array_hash(build(<val:uint16>[i=1:1], 1))" >> $OUTFILE
+iquery -ocsv:l -aq "array_hash(build(<val:string>[i=1:1], 'Hello, World'))" >> $OUTFILE
+iquery -ocsv:l -aq "array_hash(build(<val:string>[i=1:1], 'Hello World'))" >> $OUTFILE
+iquery -ocsv:l -aq "array_hash(build(<val:string>[i=1:1], null))" >> $OUTFILE
+iquery -ocsv:l -aq "array_hash(build(<val:double>[i=1:1], 1))" >> $OUTFILE
+iquery -ocsv:l -aq "array_hash(build(<val:int64>[i=1:1], 1))" >> $OUTFILE
+iquery -ocsv:l -aq "array_hash(build(<val:int32>[i=1:1], 1))" >> $OUTFILE
+iquery -ocsv:l -aq "array_hash(build(<val:uint16>[i=1:1], 1))" >> $OUTFILE
 
 echo "But these actually match" >> $OUTFILE
-iquery -aq "array_hash(build(<val:int8>[i=1:1], 1))" >> $OUTFILE
-iquery -aq "array_hash(build(<val:uint8>[i=1:1], 1))" >> $OUTFILE
-iquery -aq "array_hash(build(<val:bool>[i=1:1], 1))" >> $OUTFILE
+iquery -ocsv:l -aq "array_hash(build(<val:int8>[i=1:1], 1))" >> $OUTFILE
+iquery -ocsv:l -aq "array_hash(build(<val:uint8>[i=1:1], 1))" >> $OUTFILE
+iquery -ocsv:l -aq "array_hash(build(<val:bool>[i=1:1], 1))" >> $OUTFILE
 
 diff $OUTFILE $MYDIR/test.expected && echo "All set, chief!"

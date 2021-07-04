@@ -56,8 +56,8 @@ public:
     ArrayDesc inferSchema(vector< ArrayDesc> schemas, shared_ptr< Query> query)
     {
         vector<DimensionDesc> dimensions(2);
-        dimensions[0] = DimensionDesc("$inst",  0, 1, 1, 0);
-        dimensions[1] = DimensionDesc("$seq",   0, 1, 100000, 0);
+        dimensions[0] = DimensionDesc("inst",  0, 1, 1, 0);
+        dimensions[1] = DimensionDesc("seq",   0, 1, 100000, 0);
         Attributes attributes;
         attributes.push_back(AttributeDesc("data_hash",
                                            TID_STRING,

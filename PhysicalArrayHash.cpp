@@ -22,6 +22,8 @@
  * END_COPYRIGHT
  */
 
+#define LEGACY_API
+
 #include <query/PhysicalOperator.h>
 #include <array/Dimensions.h>
 #include <array/Metadata.h>
