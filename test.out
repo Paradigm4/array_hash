@@ -1,0 +1,50 @@
+These should match
+data_hash,count
+'60f00f7cd3857835688108e0',4000000
+data_hash,count
+'60f00f7cd3857835688108e0',4000000
+data_hash,count
+'60f00f7cd3857835688108e0',4000000
+data_hash,count
+'60f00f7cd3857835688108e0',4000000
+data_hash,count
+'60f00f7cd3857835688108e0',4000000
+data_hash,count
+'60f00f7cd3857835688108e0',4000000
+data_hash,count
+'60f00f7cd3857835688108e0',4000000
+These should diverge
+data_hash,count
+'6cc3c24358d37b339cad45d9',3999999
+data_hash,count
+'a74b460d240ccb6bd125c18f',3999999
+data_hash,count
+'9d4717ec812bc8f74cf05a06',4000000
+data_hash,count
+'0ed543769ffb9195d3675428',2000000
+data_hash,count
+'a2ffe6ad98510f72d17b4939',4000000
+data_hash,count
+'c3b3081f5a1cc540925d165d',4000000
+These should also diverge
+data_hash,count
+'0e4743100e4743100e474310',1
+data_hash,count
+'53c48c1053c48c1053c48c10',1
+data_hash,count
+'059fbc20059fbc20059fbc20',1
+data_hash,count
+'a0d58917a0d58917a0d58917',1
+data_hash,count
+'b89e7b5bb89e7b5bb89e7b5b',1
+data_hash,count
+'80ee408680ee408680ee4086',1
+data_hash,count
+'6855797a6855797a6855797a',1
+But these actually match
+data_hash,count
+'ebafc6beebafc6beebafc6be',1
+data_hash,count
+'ebafc6beebafc6beebafc6be',1
+data_hash,count
+'ebafc6beebafc6beebafc6be',1
