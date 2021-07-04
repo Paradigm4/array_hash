@@ -51,6 +51,7 @@ For each array cell we assemble the tuple into a single buffer, with dimensions 
  * sum
  * product modulo a large prime
  * xor
+
 These 3 operators are associative and commutative and we use that to merge the tuple hashes in parallel. Finally we concatenate these three 4-byte quantities into a single 12-byte result. That's the returned `hash`. This is why the hash of a single-cell array looks like a repeating pattern. This also means that computed hash values can be "merged" together other values if desired.
 
 ## Big Array Timings
