@@ -30,7 +30,7 @@ The following things affect the hash; changing them will alter the result:
  * array data - adding or removing cells, changing a value, setting a value to null or changing null code
  * cell positions and number of dimensions (except dataframes)
  * changing attributes to dimensions or vice-versa
- * changing datatype size - like casting from a `float` to a `double`. Note that only the size and binary sequence is considered. Thus a `1` is considered the same in `uint32` versus `in32` and also a `1` in `uint8` happens to be the same as a `bool` value of `true`.
+ * changing datatype size - like casting from a `float` to a `double`. Note that only the size and binary sequence is considered. Thus a `1` is considered the same in `uint32` versus `in32` and also a `1` in `uint8` happens to be the same as a `bool` value of `true`. Also the empty string `''` is treated the same way as a `uint8` value of `0`.
  * the order of attributes values
 
 And when we say "will alter the result" we mean "with overwhelmingly high probability." Hash collisions are always theoretically possible.
